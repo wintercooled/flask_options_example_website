@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Option Contract ID: {{ option.contract_id }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header d-flex align-items-center" style="margin-bottom: 16px;">
+        <h2>Contract ID: <a href="{{ url_for('option', contract_id=[option.contract_id]) }}">{{ option.contract_id[0:8]
+                }}...</a></h2>
+    </div>
+
+    <div class="container asset-dashboard">
+        <div class="card-container__content-grid__2-column">
+            <div class="panel" id="asset-issuance">
+                <div class="d-flex align-items-center mb-4">
+                    <h3 style="margin-bottom: 0px; padding-bottom: 4px;">OPTION DETAILS</h3>
+                </div>
+                <div id="asset-stats">
+                    <div>
+                        <span>Contract ID</span>
+                        <span>{{ option.contract_id }}</span>
+                    </div>
+                    <div>
+                        <span>Collateral Asset</span>
+                        <span>{{ option.coll_asset }}</span>
+                    </div>
+                    <div>
+                        <span>Settlement Asset</span>
+                        <span>{{ option.settle_asset }}</span>
+                    </div>
+                    <div>
+                        <span>Contract Size</span>
+                        <span>{{ option.contract_size }}</span>
+                    </div>
+                    <div>
+                        <span>Strike Price</span>
+                        <span>{{ option.strike_price }}</span>
+                    </div>
+                    <div>
+                        <span>Start</span>
+                        <span>{{ option.start }}</span>
+                    </div>
+                    <div>
+                        <span>Expiry</span>
+                        <span>{{ option.expiry }}</span>
+                    </div>
+                    <div>
+                        <span>CRT</span>
+                        <span>{{ option.crt }}</span>
+                    </div>
+                    <div>
+                        <span>ORT</span>
+                        <span>{{ option.ort }}</span>
+                    </div>
+                    <div>
+                        <span>Liquidity</span>
+                        <span>{{ option.liquidity }}</span>
+                    </div>
+                    <div>
+                        <span></span>
+                        <span style="display: inherit;">
+                            <form action="export" method="post">
+                                <input type="hidden" name="contract_id" value="{{ option.contract_id }}">
+                                <div class="asset-buttons ml-auto">
+                                    <input class="btn btn-action btn-action-green"
+                                        style="vertical-align: bottom; height:30px; margin-left: 16px;" id="submit"
+                                        name="submit" type="submit" value="EXPORT">
+                                </div>
+                            </form>
+                            <form action="remove" method="post">
+                                <input type="hidden" name="contract_id" value="{{ option.contract_id }}">
+                                <div class="asset-buttons ml-auto">
+                                    <input class="btn btn-action btn-action-green"
+                                        style="vertical-align: bottom; height:30px; margin-left: 16px;" id="submit"
+                                        name="submit" type="submit" value="REMOVE">
+                                </div>
+                            </form>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center mb-4">
+        <h3 style="font-size: 22px; margin-top: 32px; margin-bottom: 0px;">
+            OPTION ACTIONS</h3>
+    </div>
+    <div class="card-container" id="investor-list" style="margin-top: 22px;">
+        <div class="card-container__content-full-width">
+            <div class="wide-card">
+                <div href="" class="wide-card__link">
+                    <div class="wide-card__title">Number of contracts to fund</div>
+                    <form action="fund" method="post">
+                        <input type="hidden" name="contract_id" value="{{ option.contract_id }}">
+                        <div class="asset-buttons ml-auto">
+                            <input id="num_contracts_fund" name="num_contracts_fund" type="text" value="">
+                            <input class="btn btn-action btn-action-green"
+                                style="vertical-align: bottom; height:30px; margin-left: 16px;" id="submit"
+                                name="submit" type="submit" value="FUND">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-container" id="investor-list" style="margin-top: 22px;">
+        <div class="card-container__content-full-width">
+            <div class="wide-card">
+                <div href="" class="wide-card__link">
+                    <div class="wide-card__title">Number of contracts to cancel</div>
+                    <form action="cancel" method="post">
+                        <input type="hidden" name="contract_id" value="{{ option.contract_id }}">
+                        <div class="asset-buttons ml-auto">
+                            <input id="num_contracts_cancel" name="num_contracts_cancel" type="text" value="">
+                            <input class="btn btn-action btn-action-green"
+                                style="vertical-align: bottom; height:30px; margin-left: 16px;" id="submit"
+                                name="submit" type="submit" value="CANCEL">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-container" id="investor-list" style="margin-top: 22px;">
+        <div class="card-container__content-full-width">
+            <div class="wide-card">
+                <div href="" class="wide-card__link">
+                    <div class="wide-card__title">Number of contracts to expire</div>
+                    <form action="expire" method="post">
+                        <input type="hidden" name="contract_id" value="{{ option.contract_id }}">
+                        <div class="asset-buttons ml-auto">
+                            <input id="num_contracts_expire" name="num_contracts_expire" type="text" value="">
+                            <input class="btn btn-action btn-action-green"
+                                style="vertical-align: bottom; height:30px; margin-left: 16px;" id="submit"
+                                name="submit" type="submit" value="EXPIRE">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-container" id="investor-list" style="margin-top: 22px;">
+        <div class="card-container__content-full-width">
+            <div class="wide-card">
+                <div href="" class="wide-card__link">
+                    <div class="wide-card__title">Number of contracts to exercise</div>
+                    <form action="exercise" method="post">
+                        <input type="hidden" name="contract_id" value="{{ option.contract_id }}">
+                        <div class="asset-buttons ml-auto">
+                            <input id="num_contracts_exercise" name="num_contracts_exercise" type="text" value="">
+                            <input class="btn btn-action btn-action-green"
+                                style="vertical-align: bottom; height:30px; margin-left: 16px;" id="submit"
+                                name="submit" type="submit" value="EXERCISE">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-container" id="investor-list" style="margin-top: 22px;">
+        <div class="card-container__content-full-width">
+            <div class="wide-card">
+                <div href="" class="wide-card__link">
+                    <div class="wide-card__title">Number of contracts to settle</div>
+                    <form action="settle" method="post">
+                        <input type="hidden" name="contract_id" value="{{ option.contract_id }}">
+                        <div class="asset-buttons ml-auto">
+                            <input id="num_contracts_settle" name="num_contracts_settle" type="text" value="">
+                            <input class="btn btn-action btn-action-green"
+                                style="vertical-align: bottom; height:30px; margin-left: 16px;" id="submit"
+                                name="submit" type="submit" value="SETTLE">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

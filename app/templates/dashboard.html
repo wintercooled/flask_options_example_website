@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="header">
+	<img src="static/images/blks-logo-mono-white-rgb.svg" class="center-img" />
+	<div class="center-txt">
+		<span class="headingtext">Blockstream Options Example Website</span>
+	</div>
+</div>
+<div id="main">
+	<div id="card">
+		<div id="" class="flexrow">
+			<section class="title flexrow">
+				<h3 class="exampletitle" style="flex:1; align-self:center;">Blockstream Options Example Website</h3>
+				<div class="examplevalue" style="align-self:center;"></div>
+			</section>
+		</div>
+		<div style="margin: 20px;">
+			<div class="valuetext">Options List</div>
+			<table>
+				{% for option in options_list %}
+				<tr>
+					<td width="400px">
+						<div>{{ option.contract_id }}</div>
+					</td>
+					<td>
+						<div>{{ option.strike_price }}</div>
+					</td>
+					{% endfor %}
+				</tr>
+			</table>
+		</div>
+		<div id="cardfooter" class="flexrow">
+			<section></section>
+			<section style="text-align: right; padding-top: 2%; padding-bottom: 2%; padding-right: 2%;">
+				Blockstream Example Options Website.
+			</section>
+		</div>
+	</div>
+</div>
+<footer>Footer</footer>
+
+{% endblock content %}

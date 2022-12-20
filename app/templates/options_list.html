@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Options List{% endblock %}
+
+{% block content %}
+<div class="container investor-list">
+    <div class="header d-flex align-items-center mb-4">
+        <h2 class="page-title" style="margin-top: 24px;">Options List</h2>
+    </div>
+
+    {% if options_list %}
+    <input id="inputContractID" class="form-control" style="margin-bottom: 14px;" type="text" placeholder="Filter by Contract ID..." aria-label="Filter by Contract ID" onkeyup="filterTableRows('inputContractID', 'tableOptionsList', 0)">
+    <input id="inputLiquidity" class="form-control" style="margin-bottom: 14px;" type="text" placeholder="Filter by Liquidity..." aria-label="Filter by Liquidity" onkeyup="filterTableRows('inputLiquidity', 'tableOptionsList', 1)">
+    <table id="tableOptionsList" class="table table-sm">
+        <thead>
+            <tr>
+                <th style="border-top: 0px;" scope="col">Contract ID</th>
+                <th style="border-top: 0px;" scope="col">Liquidity</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for option in options_list %}
+            <tr>
+                <td style="border-top: 0px;" scope="row"><a href="{{ url_for('option', contract_id=[option.contract_id]) }}">{{ option.contract_id }}</a></td>
+                <td style="border-top: 0px;">{{ option.liquidity }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div>You haven't created any options yet.</div>
+    {% endif %}
+</div>
+{% endblock content %}

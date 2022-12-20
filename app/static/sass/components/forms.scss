@@ -1,0 +1,124 @@
+.sto-form {
+    max-width: 824px;
+    margin: auto;
+    div:not(.selector) {
+      input:not([type=submit]), textarea {
+        color: $white;
+        background-color: inherit;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid $form-lining;
+        padding-left: 0;
+        padding-right: 0;
+        &:focus {
+          background-color: inherit;
+          box-shadow: none;
+          color: $white;
+        }
+      }
+      textarea {
+        resize: none;
+      }
+    }
+    input:not([type=submit]), textarea {
+      color: $white;
+      background-color: inherit;
+      border: 0;
+      border-radius: 0;
+      border-bottom: 1px solid $form-lining;
+      padding-left: 0;
+      padding-right: 0;
+      &:focus {
+        background-color: inherit;
+        box-shadow: none;
+        color: $white;
+      }
+    }
+    textarea {
+      resize: none;
+    }
+    .selector-filter {
+      input {
+        color: #666 !important;
+      }
+    }
+    fieldset {
+      margin-top: 40px;
+    }
+  }
+  
+  .header-actions {
+    .badge {
+      font-weight: 400;
+      height: 20px;
+      min-width: 54px;
+      background-color: rgba($outer-space, 0.9);
+      &:hover, &:focus {
+        background-color: rgba($outer-space, 1);
+      }
+    }
+    .action-icon {
+      opacity: 0.9;
+      &:hover, &:focus {
+        opacity: 1;
+      }
+    }
+  }
+
+
+
+
+// inputs
+// checkbox overrides
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+input[type=checkbox]:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: -2px;
+    width: 20px;
+    height: 20px;
+    background-color: $body-color-dark;
+    border: 1px solid $metal-gray;
+    border-radius: 2px;
+}
+input[type=checkbox]:hover:before {
+    background-color: $body-color-dark;
+}
+input[type=checkbox]:checked:before {
+    background-color: $body-color-dark;
+    border-color: $metal-gray;
+}
+input[type=checkbox]:disabled {
+    color: $metal-gray;
+    cursor: auto;
+}
+input[type=checkbox]:disabled:before {
+    box-shadow: none;
+    background-color: $black;
+}
+input[type=checkbox]:checked:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    background-color: $white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 $white, 4px 0 0 $white, 4px -2px 0 $white, 4px -4px 0 $white, 4px -6px 0 $white, 4px -8px 0 $white;
+    transform: rotate(45deg);
+}
+
+// form overrides
+.form-control {
+    background-color: $body-color-dark !important;
+    border-color: #495057 !important;
+    outline: none !important;
+    color: $white !important;
+    box-shadow: none !important;
+}

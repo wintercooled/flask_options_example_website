@@ -1,0 +1,6 @@
+/venv
+.vscode/
+__pycache__/
+/*database.db
+/testing
+DEV_NOTES

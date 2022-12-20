@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Import Option{% endblock %}
+
+{% block content %}
+<div class="container investor-list">
+    <div class="header d-flex align-items-center mb-4">
+        <h2 class="page-title" style="margin-top: 24px;">Import Option</h2>
+    </div>
+    <div>
+        Paste the option JSON data below to import a new option.<br/>
+        An example of the format is shown below and should be replaced with<br/>
+        the data exported from another options client.
+    </div><br />
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token() }}
+        <p>
+            {{ form.import_data(cols="82", rows="12") }}<br>
+            {% for error in form.import_data.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <br>
+        </p>
+        <p>{{ form.submit(class_="btn-submit ml-auto btn btn-action btn-action-green", style="width:170px; vertical-align: bottom; height:30px; margin-left: 16px;") }}</p>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Blockstream Options Example{% endblock title %}</title>
+    <meta name="viewport" content="width=1024">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <link rel="icon" sizes="32x32 57x57 96x96" href="static/images/favicons/favicon.ico">
+
+    <!-- Latest compiled and minified Bootstrap 4.1.1 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+
+    <!-- Your stuff: Third-party CSS libraries go here -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- This file stores project-specific CSS -->
+    <!-- NOTE: adding a timestamp to the import to get around a caching annoyance during development - this can be removed after development is complete -->
+
+    <style type="text/css"></style>
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 d-none d-md-block p-0 sidebar" style="max-width:220px;">
+                <div class="sidebar-sticky">
+                    <div class="sidebar-contents d-flex flex-column">
+                        <div class="navbar-header" style="margin: 9px;">
+                            Options Example Site
+                        </div>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('options_list') }}">
+                                    <span>List Options</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('option_add') }}">
+                                    <span>Create New Option</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('option_import') }}">
+                                    <span>Import Option</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="sidebar-user flex-row" style="margin-left: 8px;">
+                            <div style="margin-left: 9px; margin-top: 10px;">
+                                Version 0.1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="main-content">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div></div>
+                        <div class=flashes>
+                            {% for category, message in messages %}
+                                {% with text = message.split('\n') %}
+                                {% for t in text %}
+                                <div class="{{ category }}">{{ t }}</div><br/>
+                                {% endfor %}
+                                {% endwith %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% endwith %}
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    </div> <!-- /container -->
+
+    {% block modal %}{% endblock modal %}
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% block javascript %}
+
+    <!-- Required by Bootstrap v4.1.1 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <!-- Your stuff: Third-party javascript libraries go here -->
+
+
+    <!-- place project specific Javascript in this file -->
+
+    <script src="static/js/project.js"></script>
+
+
+    {% endblock javascript %}
+</body>
+
+</html>

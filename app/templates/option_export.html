@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Option Contract ID: {{ contract_id }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header d-flex align-items-center" style="margin-bottom: 16px;">
+        <h2>Contract ID: <a href="{{ url_for('option', contract_id=[contract_id]) }}">{{ contract_id[0:8]
+                }}...</a></h2>
+    </div>
+
+    <div class="container asset-dashboard">
+        <div class="card-container__content-grid__2-column">
+            <div class="panel" id="asset-issuance">
+                <div class="d-flex align-items-center mb-4">
+                    <h3 style="margin-bottom: 0px; padding-bottom: 4px;">OPTION EXPORT</h3>
+                </div>
+                <div id="asset-stats">
+                    <div>
+                        <pre style="color: white; font-size: 12px;">{{ option }}</pre>
+                    </div>
+                </div>
+                <div>
+                    <span>Share the above with someone running the options client
+                        so they can import it and carry out actions on the contract.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

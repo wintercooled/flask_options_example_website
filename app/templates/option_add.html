@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Add New Option{% endblock %}
+
+{% block content %}
+<div class="container investor-list">
+    <div class="header d-flex align-items-center mb-4">
+        <h2 class="page-title" style="margin-top: 24px;">Add New Option</h2>
+    </div>
+    <div>
+        Enter the values below to create a new Option.
+    </div><br />
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token() }}
+        <p>
+            <span style="width: 200px; display:inline-block">{{ form.contract_size.label }}</span>
+            {{ form.contract_size }}<br>
+            {% for error in form.contract_size.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <br>
+            <span style="width: 200px; display:inline-block">{{ form.coll_asset.label }}</span>
+            {{ form.coll_asset }}<br>
+            {% for error in form.coll_asset.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <br>
+            <span style="width: 200px; display:inline-block">{{ form.settle_asset.label }}</span>
+            {{ form.settle_asset }}<br>
+            {% for error in form.settle_asset.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <br>
+            <span style="width: 200px; display:inline-block">{{ form.start.label }}</span>
+            {{ form.start }}<br>
+            {% for error in form.start.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <br>
+            <span style="width: 200px; display:inline-block">{{ form.expiry.label }}</span>
+            {{ form.expiry }}<br>
+            {% for error in form.expiry.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <br>
+            <span style="width: 200px; display:inline-block">{{ form.strike_price.label }}</span>
+            {{ form.strike_price }}<br>
+            {% for error in form.strike_price.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <br>
+        </p>
+        <p>{{ form.submit(class_="btn-submit ml-auto btn btn-action btn-action-green", style="width:170px; vertical-align: bottom; height:30px; margin-left: 16px;") }}</p>
+    </form>
+</div>
+{% endblock content %}

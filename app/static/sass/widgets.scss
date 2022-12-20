@@ -1,0 +1,93 @@
+$white: #fff;
+$mint-green: #d6e9c6;
+$black: #000;
+$pink: #f2dede;
+$dark-pink: #eed3d7;
+$red: #b94a48;
+
+// Project colors
+
+$body-color-dark: #12171e;
+$body-color-light: #161d25;
+$metal-gray: #6d7880;
+$turquoise: #2adbce;
+$form-lining: #414448;
+$light-jungle-green: #0a8287;
+$medium-jungle-green: #2a3540;
+$dark-jungle-green: #19222c;
+
+.selector {
+  .selector-available, .selector-chosen {
+    width: 362px;
+    h2 {
+      background: transparent;
+      font-size: 18px;
+      border: none;
+      color: $white;
+      padding: 20px;
+      .help {
+        display: none;
+      }
+      margin-bottom: 0;
+    }
+    select {
+      width: 362px;
+      background-color: $dark-jungle-green;
+      border: none;
+      padding: 0;
+      &:focus {
+        outline: none;
+      }
+      option {
+        padding: 9px 26px;
+        color: $white;
+        &:hover {
+          background-color: $light-jungle-green;
+        }
+      }
+    }
+  }
+  .selector-available {
+    .selector-filter {
+      background-color: transparent;
+      border: none;
+      padding: 15px;
+      label {
+        margin-top: 4px;
+        .search-label-icon {
+          background-image: url("../images/search.svg")
+        }
+      }
+      input {
+        color: $white !important;
+        border-bottom: 1px $white solid !important;
+        width: 306px;
+        font-size: 14px;
+      }
+    }
+  }
+  ul.selector-chooser {
+    background-color: transparent;
+    width: 46px;
+    .selector-add {
+      background-image: url(../images/arrow_r.svg);
+      background-repeat: no-repeat;
+      background-position: 0% 0% !important;
+      height: 40px;
+      width: 40px;
+      &.active {
+        background-image: url(../images/arrow_r_active.svg);
+      }
+    }
+    .selector-remove {
+      background-image: url(../images/arrow_l.svg);
+      background-repeat: no-repeat;
+      background-position: 0% 0% !important;
+      height: 40px;
+      width: 40px;
+      &.active {
+        background-image: url(../images/arrow_l_active.svg);
+      }
+    }
+  }
+}

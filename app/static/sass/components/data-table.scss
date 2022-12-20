@@ -1,0 +1,129 @@
+.data-table {
+    max-width: 500px;
+    margin-top: 75px;
+}
+
+.data-table .data-table-row {
+    display: table;
+    table-layout: fixed;
+}
+
+.data-table-link-row:nth-child(even) {
+    background-color: $body-color-dark;
+}
+.data-table-link-row:nth-child(odd) {
+    background: $body-color-light;
+}
+
+.data-table .data-table-row > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.data-table .data-table-row .highlighted-text {
+	color: $turquoise !important;
+}
+
+.data-table .data-table-row.header, .data-table .data-table-row.block-data {
+    height: 52px;
+}
+
+.data-table .data-table-row.header > *, .data-table .data-table-row.block-data > * {
+    font-size: 16px;
+    color: $white;
+}
+
+.data-table .data-table-row.header > * {
+    text-transform: uppercase;
+    color: $white;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.data-table_header_cell_text {
+    border-bottom: 2px solid $turquoise;
+    padding-bottom: 10px;
+}
+
+// .data-table .data-table-row.block-data:not(.loading):hover {
+//     background-color: rgba(255, 255, 255, 0.05);
+// }
+
+.data-table .data-table-row.block-data > * {
+    font-size: 16px;
+}
+
+.data-table .data-table-row.loading img {
+    display: block;
+    margin: auto;
+    height: 45px;
+    width: 45px;
+    padding: 3px 0;
+}
+
+.data-table .data-table-row > div:nth-child(1) {
+    width: 300px;
+}
+
+.data-table .data-table-row > div:nth-child(2) {
+    width: 200px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .data-table .data-table-row > div:nth-child(2) {
+        width: 1250px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    div.data-table-row.header {
+        display:none;
+    }
+
+    .data-table-row {
+        margin: 0 0 1rem 0;
+        display: flex;
+        flex-direction: column;
+        height: auto !important;
+        padding: 20px;
+    }
+
+    .data-table-link-row {
+        margin-bottom: 20px;
+    }
+
+    .data-table-link-row:nth-child(odd) {
+        background: $body-color-light;
+    }
+
+    .data-table .data-table-row.block-data > * {
+        border: none;
+        position: relative;
+        padding-left: 0 !important;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // width: 100% !important;
+        text-align: right;
+    }
+
+    .data-table-row {
+        display: block;
+    }
+
+    div.data-table-cell:before {
+        width: 45%;
+        padding-right: 10px;
+        font-weight: 600;
+        color: #78838e;
+    }
+
+    .data-table .data-table-row.header {
+		display: none;
+	}
+
+    div.data-table-cell:before { content: attr(data-label); text-align: left; width: auto;}
+}

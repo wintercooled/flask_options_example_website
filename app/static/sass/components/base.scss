@@ -1,0 +1,51 @@
+@import url('https://use.typekit.net/chx2fbn.css');
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: $body-color-dark;
+    color: $white;
+    font-family: din-2014, Arial, Helvetica, sans-serif;
+}
+.hidden {
+    display: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: din-2014;
+}
+h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+a {
+    color: $turquoise;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        color: $turquoise;
+    }
+}
+
+.main-content-wrapper {
+    max-width: 924px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+// headers & titles
+.page-title {
+    font-size: 34px;
+    font-weight: 600;
+    color: $white;
+    border-bottom: 3px solid $turquoise;
+    padding-bottom: 10px;
+}

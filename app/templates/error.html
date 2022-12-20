@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}An error occured: {{ error }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header d-flex align-items-center" style="margin-bottom: 16px;">
+        <h2>{{  error  }}</h2>
+    </div>
+
+    <div>
+        <a href="{{ url_for('dashboard') }}">Take me to the home page.</a>
+    </div>
+</div>
+{% endblock content %}
